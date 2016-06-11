@@ -1,0 +1,39 @@
+﻿<div class="jumbotron text-center">
+    <h1>Admin Page</h1>
+
+    <div ng-controller="addDeviceFormController">
+        <div class="container">
+            <form name="addDeviceForm" class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-xs-2">Name</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name of the device" ng-model="device.name" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputIpAddress" class="control-label col-xs-2">IP address</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="inputIpAddress" placeholder="Ip address of the device" ng-model="device.ipAddress" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputRemotePort" class="control-label col-xs-2">Remote port</label>
+                    <div class="col-xs-10">
+                        <input type="number" class="form-control" id="inputRemotePort" placeholder="Remote port of the device" ng-model="device.remotePort" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input type="button" ng-click="reset()" class="btn btn-lg btn-default" value="Reset" />
+                        <input type="submit" ng-click="update(device)" class="btn btn-lg btn-default btn-primary" value="Save" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <p><b>{{ addFormStatus }}</b></p>
+                    </div>
+                </div>
+            </form>            
+        </div>
+    </div>
+</div>
