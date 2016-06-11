@@ -1,0 +1,41 @@
+﻿<div class="jumbotron text-center">
+    <h1>Devices Page</h1>
+
+    <div ng-controller="devicesListController">
+        <div class="container">
+            <table class="table table-striped table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Device Name</th>
+                        <th>IP address</th>
+                        <th>Remote port</th>
+                        <th>State</th>
+                        <th>Last status</th>
+                        <th>~</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="device in devices">
+                        <td>{{device.id}}</td>
+                        <td>{{device.name}}</td>
+                        <td>{{device.ipAddress}}</td>
+                        <td>{{device.remotePort}}</td>
+                        <td>
+                            <input type="checkbox" ng-model="device.state" bs-switch ng-change="toggle(device)" />
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" disabled ng-show="device.success">Success</button>
+                            <button type="button" class="btn btn-danger" disabled ng-show="device.error">Error</button>
+                        </td>
+                        <td>
+                            <input type="button" value="Remove" class="btn btn-primary" ng-click="removeRow(device)" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>{{ switchStatus }}</p>
+        </div>
+    </div>
+
+</div>
